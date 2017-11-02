@@ -1,0 +1,51 @@
+# Dope Manager!
+
+[1] What's This!?
+
+- Dope Manager currently will start just as a bash script and more stuff will be added later.
+
+[2] For what's it useful ?!
+
+- Dope-Manager is meant to be a good "WebServer" for companies who have to deal with big data. And Why not for personal usage!.
+
+  - WebServer maded for Whmcs.
+  - Backup when you need.
+  - Monitor Your Website Visitors Requests etc.
+  - Security features.
+  - "DDoS Protection". 
+  - Cache Server.
+  - Easy way to manage EDIT/REMOVE/ADD static files for main domain and others.
+  
+[3] What will installation script install on my server ?!
+```
+  - As WebServer       |=> Apache,
+  - As To Speed up     |=> Nginx/Varnish,
+  - As For Php         |=> PHP7.0+,
+  - As For Mail        |=> Postfix, Exim4,
+  - As For FTP         |=> Proftpd,
+  - As For DNS         |=> PowerDNS,
+  - As For WebMail     |=> Not Decided Yet.
+  - As For GUI.        |=> Custom Php Script Created By Me.
+  - As For File Editor |=> Not Decided Yet.
+  ...
+```
+[4] Ok you're building a small "webhosting panel" ? What about its security or having users?
+
+- Somehow you can call it a small "Web Hosting Panel" But this is something like a personal panel.
+Which mean i'm not thinking to care about a way to create clients. About users maybe there will be because i'm thinking to ex create a user which should care about backups, create a user which should monitor webserver. etc.
+So this is just for personal usage and you shouldn't like adding a new vhost and creating a user to manage it because that user may have bad interests and can access data which he shouldn't!!
+
+[5] Required System.
+```
+  - +2GB RAM.
+  - +1 CPU Cores.
+  - +20 GB OF SPACE PREFERED SSD BUT IT WILL NOT BE BAD EVEN IF IS HDD.
+  - 1GB/s Uplink. (When using all features in one place!)
+```
+
+[6] Contribute Or Copy This?!
+```
+ - This is a open source project and anyone with some knowledge can and is allowed to contribute.
+ - You are allowed to copy/edit this project and re'publish only if you put author rights (The-Raw).
+ - YOU ARE NOT ALLOWED TO SELL THIS PROJECT. THIS IS A FREE OPEN SOURCE PROJECT AND ALWAYS WILL BE.
+```
