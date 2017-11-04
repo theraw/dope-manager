@@ -1,48 +1,30 @@
 server {
-    listen       80 default_server;
-    server_name  localhost;
+        listen 80 default_server;
+        root /hostdata/default/public_html;
+        index index.php;
+        server_name localhost;
+        limit_conn max 100;
+        limit_req zone=one burst=1 nodelay;
 
-    location / {
-        root        /hostdata/default/public_html;
-        index       index.html;
-        access_log  /hostdata/default/logs/access.log main;
-    }
+        location / {
+          access_log /hostdata/default/logs/access.log main;
+          error_log  /hostdata/default/logs/error.log;
+          try_files $uri $uri/ =404;
+          #include /etc/nginx/blacklist/*;
+        }
+        error_page 503 /angry.html;
 
-    error_page  404              /404.html;
-    error_page  500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /hostdata/default/public_html;
-    }
-
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #
-    #location ~ \.php$ {
-    #    proxy_pass   http://127.0.0.1;
-    #}
-
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    #location ~ \.php$ {
-    #    root           html;
-    #    fastcgi_pass   127.0.0.1:9000;
-    #    fastcgi_index  index.php;
-    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-    #    include        fastcgi_params;
-    #}
-
-    # deny access to .htaccess files, if Apache's document root
-    # concurs with nginx's one
-    #
-    #location ~ /\.ht {
-    #    deny  all;
-    #}
-
-    # enable /api/ location with appropriate access control in order
-    # to make use of NGINX Plus API
-    #
-    #location /api/ {
-    #    api write=on;
-    #    allow 127.0.0.1;
-    #    deny all;
-    #}
+        # =========================================
+        # PHP.
+        # =========================================
+        location ~ \.php {
+          try_files $uri /index.php =404;
+          fastcgi_pass 127.0.0.1:9000;
+          fastcgi_index index.php;
+          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+          include /etc/nginx/fastcgi_params;
+         }
+        # =========================================
+        # END PHP.
+        # =========================================
 }
