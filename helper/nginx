@@ -47,16 +47,19 @@ chmod +x /etc/init.d/nginx-debug
 mkdir -p /var/log/nginx/
 mkdir -p /etc/nginx/live/
 mkdir -p /hostdata/
+mkdir -p /hostdata/default/public_html
+mkdir -p /hostdata/default/logs/
 ln -s /etc/nginx/ /nginx
 touch /var/log/nginx/error.log
 touch /var/log/nginx/access.log
-
+touch /hostdata/default/logs/access.log
 # ====================================================================================
 # ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 # ====================================================================================
 # RE'CONF.
 # ====================================================================================
 cd /nginx; rm -Rf nginx.conf; wget https://raw.githubusercontent.com/theraw/my-nginx/master/nginx-plus/static/nginx.conf; clear
+cd /nginx/live/; wget 
 # ====================================================================================
 # ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 # ====================================================================================
