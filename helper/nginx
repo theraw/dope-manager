@@ -78,7 +78,9 @@ touch /hostdata/default/logs/access.log
 # ====================================================================================
 cd /nginx; rm -Rf nginx.conf; wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/nginx/nginx.conf; clear
 cd /nginx/live/; wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/nginx/default
-cd /hostdata/default/public_html; wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/nginx/index.html
+cd /hostdata/default/public_html/
+wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/nginx/html/index.html
+wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/nginx/html/angry.html
 # ====================================================================================
 # ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 # ====================================================================================
