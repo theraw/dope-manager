@@ -1,0 +1,10 @@
+<VirtualHost *:8080>
+	#ServerName www.example.com
+
+	ServerAdmin webmaster@dopecloud.org
+	DocumentRoot /var/www/html
+	#LogLevel info ssl:warn
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
