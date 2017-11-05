@@ -1,9 +1,25 @@
+THIS_VERSION=5.6.32
+wget -O /tmp/php-${THIS_VERSION}.tar.bz2 \
+    http://cz1.php.net/get/php-${THIS_VERSION}.tar.bz2/from/this/mirror
+    
+tar -xvjpf /tmp/php-${THIS_VERSION}.tar.bz2 -C /php/builds
+cd /php/builds/php-${THIS_VERSION}*
 ./configure \
     --with-mcrypt \
     --enable-mbstring \
+    --enable-mod-charset \
+    --enable-bcmath \
+    --enable-calendar \
     --with-openssl \
+    --enable-intl \
+    --with-readline \
+    --with-recode \
+    --with-libedit \
     --with-mysql \
     --with-mysql-sock \
+    --enable-soap \
+    --with-openssl \
+    --with-xmlrpc \
     --with-gd \
     --with-jpeg-dir=/usr/lib \
     --enable-gd-native-ttf  \
@@ -12,6 +28,7 @@
     --with-mysqli=/usr/bin/mysql_config \
     --with-curl \
     --enable-zip  \
+    --with-pear \
     --enable-sockets \
     --with-zlib \
     --enable-exif \
@@ -23,3 +40,6 @@
     --with-freetype-dir=/usr \
     --prefix=/php/php56 \
     --with-config-file-path=/php/php56/etc
+    
+make -j`nproc`
+make install
