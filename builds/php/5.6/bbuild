@@ -11,6 +11,8 @@ cd /php/builds/php-${THIS_VERSION}*
     --enable-bcmath \
     --enable-calendar \
     --with-openssl \
+    --with-openssl=/php/openssl/ \
+    --with-openssl-dir=/php/openssl/ \
     --enable-intl \
     --with-readline \
     --with-recode \
@@ -18,7 +20,6 @@ cd /php/builds/php-${THIS_VERSION}*
     --with-mysql \
     --with-mysql-sock \
     --enable-soap \
-    --with-openssl \
     --with-xmlrpc \
     --with-gd \
     --with-jpeg-dir=/usr/lib \
