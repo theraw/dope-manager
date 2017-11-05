@@ -1,7 +1,7 @@
 server {
         listen 80 default_server;
         root /hostdata/default/public_html;
-        index index.php;
+        index index.html index.php;
         server_name localhost;
         limit_conn max 100;
         limit_req zone=one burst=1 nodelay;
