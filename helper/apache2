@@ -5,6 +5,7 @@ sudo apt-get install -y libapache2-mod-perl2 libapache2-mod-python
 # ===============
 # RE'CONF.
 # ===============
+mkdir -p /etc/apache2/live/
 rm -Rf /etc/apache2/apache2.conf
 cd /etc/apache2/; wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/apache2/apache2.conf
 sudo a2dismod mpm_event
@@ -13,3 +14,5 @@ sudo service apache2 restart
 rm -Rf /etc/apache2/mods-available/mpm_prefork.conf; cd /etc/apache2/mods-available/
 wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/apache2/mods-available/mpm_prefork.conf
 service apache2 restart
+cd /etc/apache2/; rm -Rf ports.conf
+wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/apache2/ports.conf
