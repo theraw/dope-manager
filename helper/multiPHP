@@ -1,1 +1,48 @@
 #!/bin/bash
+
+sudo apt-get update; sudo apt-get upgrade -y; sudo apt-get dist-upgrade -y; sudo apt-get autoremove -y
+apt-get install -y libicu-dev libmcrypt-dev libmcrypt4
+apt-get install -y libpng-dev
+apt-get install -y autoconf automake curl libcurl3-openssl-dev build-essential libxslt1-dev re2c 
+apt-get install -y libxml2 libxml2-dev bison libbz2-dev libreadline-dev
+apt-get install -y libfreetype6 libfreetype6-dev libpng12-0 libpng12-dev libjpeg-dev libjpeg8-dev libjpeg8  libgd-dev libgd3 
+apt-get install -y libxpm4 libltdl7 libltdl-dev
+apt-get install -y libssl-dev openssl
+apt-get install -y gettext libgettextpo-dev libgettextpo0
+apt-get install -y libicu-dev
+apt-get install -y libmhash-dev libmhash2
+apt-get install -y libmcrypt-dev libmcrypt4
+apt-get install -y libedit-dev
+apt-get install -y librecode-dev
+apt-get install -y libreadline-dev
+apt-get install -y libxslt-dev
+
+apt-get install -y libfcgi-dev libfcgi0ldbl libjpeg62-dbg libmcrypt-dev libssl-dev libbz2-dev libjpeg-dev \
+    libfreetype6-dev libpng12-dev libxpm-dev libxml2-dev libpcre3-dev libbz2-dev libcurl4-openssl-dev \
+    libjpeg-dev libpng12-dev libxpm-dev libfreetype6-dev libmysqlclient-dev libt1-dev libgd2-xpm-dev \
+    libgmp-dev libsasl2-dev libmhash-dev unixodbc-dev freetds-dev libpspell-dev libsnmp-dev libtidy-dev \
+    libxslt1-dev libmcrypt-dev libdb5.3-dev
+
+#
+rm -Rf /php
+mkdir -p /php/builds
+
+# ======================================================================
+# As php5.6 won't build with openssl 1.1 we need an old version..
+mkdir -p /php/openssl; cd /php/openssl; wget https://github.com/openssl/openssl/archive/OpenSSL_0_9_7c.zip
+unzip OpenSSL_0_9_7c.zip; rm -Rf OpenSSL_0_9_7c.zip; mv openssl* 0.9.7; cd 0.9.7
+./config --prefix=/php/openssl --openssldir=/php/openssl no-asm -fPIC
+sudo make -j`nproc`
+sudo make install
+# ======================================================================
+
+# ======================================================================
+# Build Php5.6
+wget https://raw.githubusercontent.com/theraw/dope-manager/master/builds/php/5.6/bbuild
+sh bbuild
+rm -Rf bbuild
+clear
+echo "This is the end of this script"
+echo "Which mean your installation has end!"
+echo "Your should see php version with '/php/php56/bin/php -v' if not scroll up to see why!"
+# ======================================================================
