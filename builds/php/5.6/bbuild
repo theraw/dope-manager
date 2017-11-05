@@ -1,3 +1,4 @@
+rm -Rf /php/builds; mkdir -p /php/builds/
 THIS_VERSION=5.6.32
 wget -O /tmp/php-${THIS_VERSION}.tar.bz2 \
     http://cz1.php.net/get/php-${THIS_VERSION}.tar.bz2/from/this/mirror
@@ -43,4 +44,5 @@ cd /php/builds/php-${THIS_VERSION}*
     --with-config-file-path=/php/php56/etc
     
 make -j`nproc`
+pear install pear/PHP_Archive
 make install
