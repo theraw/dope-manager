@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+	ServerName example2.com
+	ServerAdmin webmaster@dopecloud.org
+	DocumentRoot /hostdata/example2.com/public_html
+	<Directory "/hostdata/example2.com/">
+		AddHandler php-cgi .php
+		Action php-cgi /php7.1/php7.1
+		<FilesMatch "\.php$">
+			SetHandler php-cgi
+		</FilesMatch>
+	</Directory>
+	ErrorLog /hostdata/example2.com/logs/error.log
+	CustomLog /hostdata/example2.com/logs/access.log combined
+</VirtualHost>
