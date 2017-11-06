@@ -1,10 +1,13 @@
 #!/bin/bash
 
-sudo apt-get install apache2 apache2-utils apache2-bin apache2-data apache2-dev apache2-doc libapache2-mod-php5 apache2-mpm-prefork -y
+sudo apt-get install apache2 apache2-utils apache2-bin apache2-data apache2-dev apache2-doc libapache2-mod-fastcgi apache2-mpm-prefork -y
 sudo apt-get install -y libapache2-mod-perl2 libapache2-mod-python
+sudo a2enmod cgi fastcgi actions
 # ===============
 # RE'CONF.
 # ===============
+mkdir -p /hostdata/
+mkdir -p /hostdata/cgi-bin
 mkdir -p /etc/apache2/live/
 rm -Rf /etc/apache2/apache2.conf
 cd /etc/apache2/; wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/apache2/apache2.conf
@@ -16,3 +19,11 @@ wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/apache2
 service apache2 restart
 cd /etc/apache2/; rm -Rf ports.conf
 wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/apache2/ports.conf
+cd /etc/apache2/live/
+wget https://raw.githubusercontent.com/theraw/dope-manager/master/static/apache2/live/default
+
+# PHP
+#mkdir /php; cd /php/; wget https://raw.githubusercontent.com/theraw/dope-manager/master/helper/php5A
+#sh /php/php5A
+#sudo a2dismod php5
+#service apache2 restart
