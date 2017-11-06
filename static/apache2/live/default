@@ -1,10 +1,14 @@
-<VirtualHost *:8080>
+<VirtualHost *:80>
 	#ServerName www.example.com
-
 	ServerAdmin webmaster@dopecloud.org
-	DocumentRoot /var/www/html
-	#LogLevel info ssl:warn
-
-	ErrorLog ${APACHE_LOG_DIR}/error.log
-	CustomLog ${APACHE_LOG_DIR}/access.log combined
+	DocumentRoot /hostdata/default/public_html
+	<Directory "/hostdata/default/">
+		AddHandler php-cgi .php
+		Action php-cgi /php5.6/php5.6
+		<FilesMatch "\.php$">
+			SetHandler php-cgi
+		</FilesMatch>
+	</Directory>
+	ErrorLog /hostdata/default/logs/error.log
+	CustomLog /hostdata/default/logs/access.log combined
 </VirtualHost>
