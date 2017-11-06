@@ -41,8 +41,12 @@ sudo make install
 wget https://raw.githubusercontent.com/theraw/dope-manager/master/builds/php/5.6/bbuild
 sh bbuild
 rm -Rf bbuild
+cd /php/56/lib/; wget https://github.com/theraw/dope-manager/raw/master/php/5.6/ioncube_loader_lin_5.6.so
+cd /php/56/etc/; wget https://raw.githubusercontent.com/theraw/dope-manager/master/php/5.6/php.ini
 clear
-echo "This is the end of this script"
-echo "Which mean your installation has end!"
-echo "Your should see php version with '/php/php56/bin/php -v' if not scroll up to see why!"
+echo "| This is the end of this script                                                        |"
+echo "| Which mean your installation has end!                                                 |"
+echo "| Your should see php version with '/php/php56/bin/php -v' if not scroll up to see why! |"
+echo "| PHP BIN => /php/56/bin/php                                                            |"
+echo "| PHP INI => /php/56/etc/php.ini                                                        |"
 # ======================================================================
